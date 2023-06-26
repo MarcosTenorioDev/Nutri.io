@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import GenerateDiet from "../components/GenerateDiet";
-import axios from "axios";
+ import '../assets/css/global.css'
+
 
 
 const Home = () => {
@@ -9,11 +9,11 @@ const Home = () => {
 
 
   return (
-    <>
+    <div className="background">
       <Navbar />
-      <GenerateDiet />
+
       
-    </>
+    </div>
   );
 }
 
