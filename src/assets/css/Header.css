@@ -17,11 +17,12 @@
 
 #title{
     font-family: poppins, sans-serif;
+    font-size: 3em;
 }
 
 #subtitle{
     font-family: poppins, sans-serif;
-    font-size: 24px;
+    font-size: 2em;
     font-weight: 300;
     color: #525252;
 
@@ -29,4 +30,38 @@
 
 .headerImg{
     width: 350px;
+}
+
+
+@media (max-width: 1000px) {
+    .headerContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titleContainer{
+        order: -1;
+        width: 100%;
+        align-items: center;
+    }
+
+
+    .headerImg{
+        width: 200px;
+    }
+    #title{
+        font-family: poppins, sans-serif;
+        font-size: 2em;
+        text-align: center;
+    }
+    
+    #subtitle{
+        font-family: poppins, sans-serif;
+        font-size: 1.2em;
+        font-weight: 300;
+        color: #525252;
+        text-align: center;
+    
+    }
+
 }

@@ -6,14 +6,13 @@
 
 .homePage{
     background-color: #EEFFFF;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-.content{
+.contentHeader{
     width: 70%;
     max-width: 1980px;
 
