@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import GenerateDiet from "../components/GenerateDiet";
 import '../assets/css/global.css'
 import Header from '../components/Header'
-
+import Banner from "../components/Banner";
 
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
         <Header />
         <GenerateDiet />
       </div>
-      
+      <Banner />
       
     </div>
   );

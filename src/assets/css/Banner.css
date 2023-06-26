@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+#banner{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #54BF29;
+    margin-top: 121px;
+}
+
+.bannerContent{
+    width: 70%;
+    max-width: 1980px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    
+}
+.bannerImg{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.contentImgDescription{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: min-content;
+    height: 100%;
+}
+
+.bannerDescription{
+    color: #fff;
+    font-family: poppins, sans-serif;
+    font-weight: 400;
+    font-size: 1.4em;
+    height: 100px;
+    text-align: center;
+}
+
+
+@media (max-width: 1000px) {
+    .bannerImg{
+        width: 160px;
+        height: 160px;
+    }
+}
