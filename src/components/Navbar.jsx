@@ -5,7 +5,8 @@ import login from '../assets/images/login.svg'
 
 const Navbar = () => {
     return (
-        <nav className="navbar">
+        <div className='navbarBackground'>
+            <nav className="navbar">
             <Link to = {`/`} className='logo'> 
                 NUTRI.IO
             </Link>
@@ -17,6 +18,7 @@ const Navbar = () => {
                 <Link className='navButton'><img src={login} alt="" className='navBarIcon' />Login</Link>
             </ul> 
         </nav>
+        </div>  
     );
   };
   

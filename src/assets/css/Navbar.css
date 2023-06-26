@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
 
+.navbarBackground{
+    background-color: #54BF29;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+}
+
 .navbar{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background-color: #54BF29;
     padding: 20px;
     color: white;
+    max-width: 1980px;
+    width: 70%;
 }
 
 .navbar-list{
