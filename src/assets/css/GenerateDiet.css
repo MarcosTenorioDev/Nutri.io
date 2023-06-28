@@ -28,6 +28,19 @@
     cursor: pointer;
 }
 
+.closeModalBtn{
+    border: none;
+    background: none;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.closeBtn{
+    width: 30px;
+    cursor: pointer;
+}
+
 
 .modal{
     position: absolute;
@@ -112,7 +125,9 @@
     font-weight: 500;
     width: 60%;
 }
-
+.modalOpen{
+    overflow-y:hidden;
+}
 
 @media (max-width: 1000px){ 
     .button{

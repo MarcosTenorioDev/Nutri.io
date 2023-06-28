@@ -2,21 +2,25 @@ import { useEffect, useState } from 'react';
 import '../assets/css/GenerateDiet.css';
 import axios from "axios";
 import API_KEY from '../services/apikey';
+import closeBtn from '../assets/images/close.svg';
 
 
 
 
 const GenerateDiet = () => {
-
+const body = document.body;
 const [showModal, setShowModal] = useState(false);
 
 const openModal = () =>{
   setShowModal(true);
+  window.scrollTo(0,0);
+  body.classList.add('modalOpen');
   Modal()
 }
 
 const closeModal = () =>{
   setShowModal(false);
+  body.classList.remove('modalOpen');
   Modal();
 }
 
@@ -37,13 +41,12 @@ const [person, setPerson] = useState ({
 
 const Modal = () => {
   if (showModal === true) {
-    console.log('abriu o form')
 
     return(
       <>
       <div className="modal">
         <div className='overlay'>
-          <button className='closeModalBtn' onClick={closeModal}>X</button>
+          <button className='closeModalBtn' onClick={closeModal}><img src={closeBtn} alt="" className='closeBtn'/></button>
           <div className='modalContent'>
             <div className='leftSide'>
               <form className='modalForm'>
