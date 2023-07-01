@@ -183,7 +183,7 @@ const GenerateDiet = () => {
 
   }
 
-  function getChat(person) { 
+  async function getChat(person) { 
     const OPENAI_API_KEY = API_KEY;
     const content = `Faça uma dieta para uma pessoa chamada ${person.name}, 
     altura:${person.height}, 
@@ -195,7 +195,11 @@ const GenerateDiet = () => {
     não esqueça de adicionar: ${person.indispensableFoods},
     objetivo da dieta: ${person.objective},
     gere de ${person.dailyRefsNumber} refeições diárias para atingir o objetivo, caso possível, caso não, explique o motivo,
-    escolha preferencialmente alimentos fáceis de encontrar em: ${person.lives}`;
+    escolha preferencialmente alimentos fáceis de encontrar em: ${person.lives}.
+    Retorne uma resposta em forma de JSON, e É OBRIGATORIAMENTE QUE FAÇA A DIETA DE SEGUNDA À DOMINGO, traga a resposta no modelo:
+    Olá, ${person.name}! Aqui está a sua dieta personalizada para ajudar você a atingir seus objetivos de ${person.objective}. 
+    Levando em consideração seus dados e preferências, foi criada uma dieta com ${person.dailyRefsNumber} refeições diárias, sem ${person.restrictFoods} e com inclusão de ${person.indispensableFoods}. 
+    Confira a tabela a seguir:... após a tabela quero dados gerais de ingestão calórica diária, ingestão de proteína diária e ingestão de carboidratos diários e também quaisquer outras informações que você julgar útil`;
 
     const config = {
       headers: {
@@ -213,7 +217,7 @@ const GenerateDiet = () => {
       ],
     };
 
-    axios
+    await axios
       .post("https://api.openai.com/v1/chat/completions", data, config)
       .then((resposta) => {
         console.log(resposta.data.choices[0].message.content);
