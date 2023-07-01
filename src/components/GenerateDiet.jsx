@@ -69,7 +69,8 @@ const GenerateDiet = () => {
       dailyRefsNumber: dailyRefsNumberInput,
       lives: livesInput,
     }));
-    console.log(person)
+    console.log(person) 
+    getChat(person)
   }
 
   const Modal = () => {
@@ -87,32 +88,32 @@ const GenerateDiet = () => {
                   <div className="allInputsContainer">
                     <div className="leftSide">
                       <label htmlFor="name" className='modalLabel'>Digite seu nome:</label>
-                      <input type="text" id="name" name="name" className='modalInput' />
+                      <input type="text" id="name" name="name" className='modalInput' placeholder='Ex: Marcos' />
 
 
                       <div className='smallInputContainer'>
                         <div className='inputContainer'>
                           <div className='input'>
                             <label htmlFor="height" className='modalLabel'>Altura:</label>
-                            <input type="number" id='height' name='height' className='modalSmallInput' />
+                            <input type="number" id='height' name='height' className='modalSmallInput' placeholder='Ex: 1,74' />
                           </div>
                           <div className='input'>
                             <label htmlFor="weight" className='modalLabel'>Peso:</label>
-                            <input type="number" id='weight' name='weight' className='modalSmallInput' />
+                            <input type="number" id='weight' name='weight' className='modalSmallInput' placeholder='Ex: 80'/>
                           </div>
                         </div>
 
                         <div className='inputContainer'>
                           <div className='input'>
                             <label htmlFor="age" className='modalLabel'>Idade:</label>
-                            <input type="number" id='age' name='age' className='modalSmallInput' />
+                            <input type="number" id='age' name='age' className='modalSmallInput' placeholder='Ex: 22'/>
                           </div>
                           <div className='input'>
                             <label hmtlFor="sex" className='modalLabel'>sexo:</label>
                             <select id="sex" name="sex" className='modalSmallInput'>
                               <option value="" selected></option>
-                              <option value="masculino">Masculino</option>
-                              <option value="feminino">Feminino</option>
+                              <option value="Masculino">Masculino</option>
+                              <option value="Feminino">Feminino</option>
                             </select>
                           </div>
 
@@ -122,9 +123,9 @@ const GenerateDiet = () => {
                       <label htmlFor="" className='modalLabel'>Qual o seu biotipo?</label>
                       <select name="bioType" id="bioType" className='modalInput'>
                         <option value="" selected></option>
-                        <option value="ectomorph">Ectomorfo</option>
-                        <option value="mesomorph">Mesomorfo</option>
-                        <option value="endomorph">Endomorfo</option>
+                        <option value="Ectomorfo">Ectomorfo</option>
+                        <option value="Mesomorfo">Mesomorfo</option>
+                        <option value="Endomorfo">Endomorfo</option>
                       </select>
 
                       <label htmlFor="activityFrequence" className='modalLabel'>Você pratica atividade física com qual frequência?</label>
@@ -139,18 +140,21 @@ const GenerateDiet = () => {
                     </div>
                     <div className="rightSide">
                       <label htmlFor="restrictFoods" className='modalLabel'>Você tem alguma restrição alimentar?</label>
-                      <input type="text" id='restrictFoods' name='restrictFoods' className='modalInput' />
+                      <input type="text" id='restrictFoods' name='restrictFoods' className='modalInput' placeholder='Ex: Amendoin, Lactose'/>
 
                       <label htmlFor="indispensableFoods" className='modalLabel'>Quais comidas são indispensáveis para você?</label>
-                      <input type="text" id='indispensableFoods' name='indispensableFoods' className='modalInput' />
+                      <input type="text" id='indispensableFoods' name='indispensableFoods' className='modalInput' placeholder='Ex: carnes vermelhas' />
 
                       <label htmlFor="objective" className='modalLabel'>Qual o seu objetivo?</label>
                       <select name="objective" id="objective" className='modalInput'>
                         <option value=""></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                        <option value="Ganho de massa muscular">Ganho de massa muscular</option>
+                        <option value="Ganho calórico">Ganho calórico</option>
+                        <option value="Manutenção do peso">Manutenção do peso</option>
+                        <option value="Comer saudável">Comer saudável</option>
+                        <option value="Emagrecimento">Emagrecimento</option>
+                        <option value="Emagrecimento + ganho de massa">Emagrecimento + ganho de massa</option>
+                        
                       </select>
 
                       <label htmlFor="dailyRefsNumber" className='modalLabel'>Quantas refeições você tem tempo de fazer diariamente?</label>
@@ -161,7 +165,7 @@ const GenerateDiet = () => {
                       </select>
 
                       <label htmlFor="lives" className='modalLabel'>Qual o país que você mora atualmente?</label>
-                      <input type="text" id='lives' name='lives' className='modalInput' />
+                      <input type="text" id='lives' name='lives' className='modalInput' placeholder='Ex: Brasil'/>
                     </div>
                   </div>
 
@@ -179,9 +183,19 @@ const GenerateDiet = () => {
 
   }
 
-  function getChat(pergunta) {
+  function getChat(person) { 
     const OPENAI_API_KEY = API_KEY;
-    const content = pergunta;
+    const content = `Faça uma dieta para uma pessoa chamada ${person.name}, 
+    altura:${person.height}, 
+    idade: ${person.age}, 
+    sexo: ${person.sex}, 
+    biotipo: ${person.biotype},
+    que pratica atividade física: ${person.activityFrequence},
+    não adicione nada que contenha: ${person.restrictFoods},
+    não esqueça de adicionar: ${person.indispensableFoods},
+    objetivo da dieta: ${person.objective},
+    gere de ${person.dailyRefsNumber} refeições diárias para atingir o objetivo, caso possível, caso não, explique o motivo,
+    escolha preferencialmente alimentos fáceis de encontrar em: ${person.lives}`;
 
     const config = {
       headers: {
@@ -194,13 +208,13 @@ const GenerateDiet = () => {
     const data = {
       model: "gpt-3.5-turbo",
       messages: [
-        { role: "system", content: "Você é um assistente de bate-papo." },
-        { role: "user", content: content },
+        { role: "system", content: "Você é uma IA que gera dietas, com refeições de segunda a domingo com base nos dados recebidos." },
+        { role: "user", content: content }, 
       ],
     };
 
     axios
-      .post("https://api.openai.com/v 1/chat/completions", data, config)
+      .post("https://api.openai.com/v1/chat/completions", data, config)
       .then((resposta) => {
         console.log(resposta.data.choices[0].message.content);
       })
