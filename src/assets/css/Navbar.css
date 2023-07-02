@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
 
-.navbarBackground{
+.navbarBackground {
     background-color: #54BF29;
     width: 100%;
     display: flex;
@@ -8,7 +8,9 @@
     align-items: center;
     justify-content: center;   
 }
-
+#loginMobile{
+    display: none;
+}
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -45,6 +47,18 @@
     width: 120px;
 }
 
-.navBarIcon{
+.navBarIcon {
     max-height: 16px;
+}
+
+@media (max-width: 1000px) {
+    .navbar-list {
+        display: none;
+    }
+    #loginMobile{
+        display: flex;
+    }
+    .navBarIcon{
+        min-height: 25px;
+    }
 }
