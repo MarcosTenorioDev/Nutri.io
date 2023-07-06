@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import '../assets/css/GenerateDiet.css';
 import closeBtn from '../assets/images/close.svg';
 import getChat from '../services/api'
+import { DataContext } from '../context/dataContext';
 
 
 const GenerateDiet = () => {
   const body = document.body;
   const [showModal, setShowModal] = useState(false);
+  const { updateDietData } = useContext(DataContext);
 
   const openModal = () => {
     setShowModal(true);
@@ -36,7 +38,7 @@ const GenerateDiet = () => {
     lives: '',
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const nameInput = event.target.elements.name.value;
     const heightInput = event.target.elements.height.value;
@@ -67,7 +69,9 @@ const GenerateDiet = () => {
       lives: livesInput,
     }));
     console.log(person) 
-    getChat(person)
+    const response = await getChat(person);
+    console.log(response)
+    updateDietData(response);
   }
 
   const Modal = () => {

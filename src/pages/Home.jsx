@@ -3,6 +3,7 @@ import GenerateDiet from "../components/GenerateDiet";
 import '../assets/css/global.css'
 import Header from '../components/Header'
 import Banner from "../components/Banner";
+import Table from "../components/Table"
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
         <GenerateDiet />
       </div>
       <Banner />
+      <Table />
       
     </div>
   );
