@@ -2,10 +2,13 @@ import '../assets/css/Table.css'
 import { DataContext, DataContextProvider } from '../context/dataContext'
 import React, { useContext, useEffect, useState } from 'react';
 import closeBtn from '../assets/images/close.svg'
-
+import pdfImage from '../assets/images/pdfImage.svg'
+import csvImage from '../assets/images/csvImage.svg'
 
 const Table = () => {
     const person = useContext(DataContext);
+    const date = new Date();
+    const year = date.getFullYear();
 
     const [tableReady, setTable] = useState(false)
 
@@ -23,11 +26,11 @@ const Table = () => {
     return (
         <div>
         {tableReady ? (
-            <div className='modal'>
+            <div className='modalDietTable'>
             <div className="tableContainer">
                     <div className='tableHeader'>
                         <div className='logoContainer'>
-                            <h1>NUTRI.IO</h1>
+                            <h1 className='logo'>NUTRI.IO</h1>
                             <button className='closeModalBtn'><img src={closeBtn} alt="" className='closeBtn' /></button>
                         </div>
 
@@ -36,47 +39,52 @@ const Table = () => {
                         
                     </div>
 
-                    <table id="table">
-                        <thead>
-                            <tr>
-                                <th>Dia</th>
-                                <th>Café da manhã</th>
-                                <th>Lanche da manhã</th>
-                                <th>Almoço</th>
-                                <th>Lanche da tarde</th>
-                                <th>Jantar</th>
-                                <th>Ceia</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {person.dietData.Refeicoes.map((refeicao, index) => {
-                            return(
-                                
-                                <tr key={index}>
-                                    <td>{refeicao.Dia}</td>
-                                    <td>{refeicao.CafeDaManha}</td>
-                                    <td>{refeicao.LancheDaManha}</td> 
-                                    <td>{refeicao.Almoco}</td> 
-                                    <td>{refeicao.LancheDaTarde}</td> 
-                                    <td>{refeicao.Jantar}</td> 
-                                    <td>{refeicao.Ceia}</td> 
+
+                    <table id="tableDiet">
+                            <thead>
+                                <tr>
+                                    <th>Dia</th>
+                                    <th>Café da manhã</th>
+                                    <th>Lanche da manhã</th>
+                                    <th>Almoço</th>
+                                    <th>Lanche da tarde</th>
+                                    <th>Jantar</th>
+                                    <th>Ceia</th>
                                 </tr>
-                            )
-                        })}
-                        </tbody>
+                            </thead>
+                            <tbody>
+                            {person.dietData.Refeicoes.map((refeicao, index) => {
+                                return(
+                                    
+                                    <tr key={index}>
+                                        <td className='dayColumn'>{refeicao.Dia}</td>
+                                        <td className='snackCell'>{refeicao.CafeDaManha}</td>
+                                        <td className='snackCell'>{refeicao.LancheDaManha}</td> 
+                                        <td className='snackCell'>{refeicao.Almoco}</td> 
+                                        <td className='snackCell'>{refeicao.LancheDaTarde}</td> 
+                                        <td className='snackCell'>{refeicao.Jantar}</td> 
+                                        <td className='snackCell'>{refeicao.Ceia}</td> 
+                                    </tr>
+                                )
+                            })}
+                            </tbody>
                     </table>
+
+                    
 
                     <div className='descriptionContainer'>
                         <div className='dietDescription'>
-                            <h3>essa dieta contém aproximadamente</h3>
-                            <p>Calorias Diárias: {person.dietData.IngestaoDiaria.Calorias}</p>
-                            <p>Proteinas Diarias: {person.dietData.IngestaoDiaria.Proteina}</p>
-                            <p>Carboidratos Diários {person.dietData.IngestaoDiaria.Carboidratos}</p>
+                            <h3 className='dietDescriptionTitle'>essa dieta contém aproximadamente :</h3>
+                            <p className='dietDescriptionContent'>Calorias Diárias: {person.dietData.IngestaoDiaria.Calorias}</p>
+                            <p className='dietDescriptionContent'>Proteinas Diarias: {person.dietData.IngestaoDiaria.Proteina}</p>
+                            <p className='dietDescriptionContent'>Carboidratos Diários {person.dietData.IngestaoDiaria.Carboidratos}</p>
                         </div>
                         <div className='dietDownload'>
-                            <h1>faça o download da dieta</h1>
-                            <button>PDF <img src="" alt="" /></button>
-                            <button>CSV <img src="" alt="" /></button>
+                            <h3 className='dietDescriptionTitle'>faça o download da dieta</h3>
+                            <div className='tableBtnContainer'>
+                                <button className='tableButton'>PDF <img src={pdfImage} alt="" /></button>
+                                <button className='tableButton'>CSV <img src={csvImage} alt="" /></button>
+                            </div>
                         </div>
 
                     </div>
@@ -86,13 +94,13 @@ const Table = () => {
 
                         <div className='suggestionContentContainer'>
                             <h3 className='suggestionContent'>
-                                teste
+                                {person.dietData.InformacoesAdicionais}
                             </h3>
                         </div>
                     </div>
 
                     <footer>
-                        <h3>copyright @ nutri.io 2023</h3>
+                        <h3 className='copyright'>copyright &copy; nutri.io {year}</h3>
                     </footer>
             </div>
             </div>

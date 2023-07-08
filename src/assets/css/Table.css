@@ -4,9 +4,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90%;
-    padding: 5%;
-    
+    width: 70%;
+    padding: 20px 40px;
+    border-radius: 35px;
+    border: 2px solid #37811F;
 }
 
 .tableHeader{
@@ -17,21 +18,114 @@
 
 .logoContainer{
     display: flex;
+    color: #54BF29;
+    padding: 0px 0px 15px 0px;
 }
 
 .tableTitle{
     text-align: center;
+    border-top: 1px solid #b9b9b9;
+    padding: 20px;
+    font-family: poppins, sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #525252;
 }
 
-#table{
+.modalDietTable{
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .7);
+    transition: opacity .2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    overflow: auto;
+}
+
+.dietDescriptionTitle{
+    font-family: poppins, sans-serif;
+    font-weight: 600;
+}
+
+.dietDescriptionContent{
+    font-family: inter, sans-serif;
+    font-weight: 500;
+}
+
+#tableDiet{
     max-width: 100%;
     background-color: white;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+#tableDiet thead{
+    background-color: #54BF29;
+    color: #FFF;
+}
+
+#tableDiet thead tr th{
+    border: 2px solid #37811F;
+    padding: 5px;
+    font-family: poppins, sans-serif;
+    font-size: small;
+    font-weight: 500;
+    letter-spacing: 1px;
+    
+}
+
+#tableDiet tbody tr td{
+    border: 2px solid #37811F;
+    padding: 5px;
+    font-size: 14px;
+}
+.dietDownload{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.tableButton{
+    background-color: #37811F;
+    padding: 5px 15px;
+    width: 120px;
+    font-family: poppins, sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tableBtnContainer{
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dayColumn{
+    font-weight: 600;
+    font-family: inter;
+}
+
+.snackCell{
+    font-weight: 500;
+    font-family: inter;
 }
 
 .descriptionContainer{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .suggestionContainer{
@@ -39,18 +133,32 @@
 }
 .suggestionTitle{
     text-align: center;
+    color: #a7a7a7;
+    font-weight: 600;
+    font-family: inter, sans-serif;
+    font-size: 17px;
+}
+
+.suggestionContent{
+    font-family: inter, sans-serif;
+    font-size: 19px;
+    font-weight: 700;
 }
 
 .suggestionContentContainer{
     text-align: center;
+    padding: 15px;
+    border-top : 1px solid #a7a7a7;
+    border-bottom: 1px solid #a7a7a7;
+    margin: 10px 0;
 }
 
-.suggestionContent{
+.copyright{
+    margin-top: 10px;
+    text-align: center;
+    color: #a7a7a7;
+    font-weight: 700;
+    font-family: inter, sans-serif;
+    font-size: 17px;
 }
 
-th{
-    border: 1px solid gray;
-}
-td{
-    border: 1px solid gray;
-}

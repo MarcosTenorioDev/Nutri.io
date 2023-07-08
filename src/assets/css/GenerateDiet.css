@@ -39,7 +39,7 @@
     align-items: center;
 }
 .closeBtn{
-    width: 30px;
+    width: 25px; 
     cursor: pointer;
 }
 
@@ -55,6 +55,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto;
 }
 
 .overlay{
@@ -171,7 +172,7 @@
         display: flex;
         justify-content: center;
         align-items: start;
-        overflow: scroll;
+        overflow: auto;
     }
     .overlay{
         border: 2px solid #37811F;
