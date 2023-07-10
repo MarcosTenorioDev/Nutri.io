@@ -38,8 +38,36 @@ const GenerateDiet = () => {
     lives: '',
   });
 
-  const handleSubmit = async (event) => {
+  const handleInputEmpty = (event) => {
     event.preventDefault();
+    let isFormValid = true;
+    for (let i = 0; i < event.target.elements.length; i++) {
+      const inputValue = event.target[i].value;
+      const inputId = event.target[i].id;
+      const errorMessageInput = document.getElementById(`${inputId}ErrorMessage`);
+  
+      if(errorMessageInput){
+        if (inputValue === "") {
+          errorMessageInput.textContent = 'Campo obrigatório*';
+          isFormValid = false
+        } else {
+          errorMessageInput.textContent = '';
+          console.log(isFormValid)
+        }
+      }
+    }
+
+    if (isFormValid){
+      console.log('form enviado')
+      handleSubmit(event)
+    }else{
+      console.log('deu ruim pra tu')
+    }
+    
+  }
+
+  const handleSubmit = async (event) => {
+
     const nameInput = event.target.elements.name.value;
     const heightInput = event.target.elements.height.value;
     const weightInput = event.target.elements.weight.value;
@@ -85,11 +113,12 @@ const GenerateDiet = () => {
             <div className='overlay'>
               <button className='closeModalBtn' onClick={closeModal}><img src={closeBtn} alt="" className='closeBtn' /></button>
               <div className='modalContent'>
-                <form className='modalForm' onSubmit={handleSubmit}>
+                <form className='modalForm' onSubmit={handleInputEmpty}>
                   <div className="allInputsContainer">
                     <div className="leftSide">
                       <label htmlFor="name" className='modalLabel'>Digite seu nome:</label>
                       <input type="text" id="name" name="name" className='modalInput' placeholder='Ex: Marcos' />
+                      <p id='nameErrorMessage' className='errorMessage'></p>
 
 
                       <div className='smallInputContainer'>
@@ -97,10 +126,12 @@ const GenerateDiet = () => {
                           <div className='input'>
                             <label htmlFor="height" className='modalLabel'>Altura:</label>
                             <input type="number" id='height' name='height' className='modalSmallInput' placeholder='Ex: 1,74' />
+                            <p id='heightErrorMessage' className='errorMessage'></p>
                           </div>
                           <div className='input'>
                             <label htmlFor="weight" className='modalLabel'>Peso:</label>
                             <input type="number" id='weight' name='weight' className='modalSmallInput' placeholder='Ex: 80'/>
+                            <p id='weightErrorMessage' className='errorMessage'></p>
                           </div>
                         </div>
 
@@ -108,6 +139,7 @@ const GenerateDiet = () => {
                           <div className='input'>
                             <label htmlFor="age" className='modalLabel'>Idade:</label>
                             <input type="number" id='age' name='age' className='modalSmallInput' placeholder='Ex: 22'/>
+                            <p id='ageErrorMessage' className='errorMessage'></p>
                           </div>
                           <div className='input'>
                             <label hmtlFor="sex" className='modalLabel'>sexo:</label>
@@ -116,6 +148,7 @@ const GenerateDiet = () => {
                               <option value="Masculino">Masculino</option>
                               <option value="Feminino">Feminino</option>
                             </select>
+                            <p id='sexErrorMessage' className='errorMessage'></p>
                           </div>
 
                         </div>
@@ -128,6 +161,7 @@ const GenerateDiet = () => {
                         <option value="Mesomorfo">Mesomorfo</option>
                         <option value="Endomorfo">Endomorfo</option>
                       </select>
+                      <p id='bioTypeErrorMessage' className='errorMessage'></p>
 
                       <label htmlFor="activityFrequence" className='modalLabel'>Você pratica atividade física com qual frequência?</label>
                       <select name="activityFrequence" id="activityFrequence" className='modalInput'>
@@ -138,6 +172,7 @@ const GenerateDiet = () => {
                         <option value="menos de uma vez por semana">Menos de uma vez por semana</option>
                         <option value="não pratico atividade física">Não pratico atividade física</option>
                       </select>
+                      <p id='activityFrequenceErrorMessage' className='errorMessage'></p>
                     </div>
                     <div className="rightSide">
                       <label htmlFor="restrictFoods" className='modalLabel'>Você tem alguma restrição alimentar?</label>
@@ -155,8 +190,8 @@ const GenerateDiet = () => {
                         <option value="Comer saudável">Comer saudável</option>
                         <option value="Emagrecimento">Emagrecimento</option>
                         <option value="Emagrecimento + ganho de massa">Emagrecimento + ganho de massa</option>
-                        
                       </select>
+                      <p id='objectiveErrorMessage' className='errorMessage'></p>
 
                       <label htmlFor="dailyRefsNumber" className='modalLabel'>Quantas refeições você tem tempo de fazer diariamente?</label>
                       <select name="dailyRefsNumber" id="dailyRefsNumber" className='modalInput'>
@@ -164,13 +199,15 @@ const GenerateDiet = () => {
                         <option value="3-4">3-4 refeições</option>
                         <option value="5-6">5-6 refeições</option>
                       </select>
+                      <p id='dailyRefsNumberErrorMessage' className='errorMessage'></p>
 
                       <label htmlFor="lives" className='modalLabel'>Qual o país que você mora atualmente?</label>
                       <input type="text" id='lives' name='lives' className='modalInput' placeholder='Ex: Brasil'/>
+                      <p id='livesErrorMessage' className='errorMessage'></p>
                     </div>
                   </div>
 
-                  <button className='buttonForm'>Gerar dieta</button>
+                  <button className="buttonForm" id='buttonForm'>Gerar dieta</button>
                 </form>
 
               </div>

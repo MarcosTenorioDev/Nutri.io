@@ -128,9 +128,15 @@
     padding: 0px 20px;
     font-family: poppins, sans-serif;
     font-weight: 500;
-    width: 100%;
-    margin-bottom: 10px;
-    
+    width: 100%;  
+}
+.errorMessage{
+    font-family: poppins, sans-serif;
+    font-size: 14px;
+    padding-left: 2px;
+    font-weight: 500;
+    color: #ff0000;
+
 }
 .modalSmallInput{
     height: 40px;
