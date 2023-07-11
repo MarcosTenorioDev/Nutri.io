@@ -2,6 +2,8 @@ import API_KEY from "./apikey";
 import axios from "axios"
 
 async function getChat(person) { 
+    console.log(person)
+    console.log('aguarde, estamos criando a sua dieta')
     const OPENAI_API_KEY = API_KEY;
     const content = `Faça uma dieta para uma pessoa chamada ${person.name}, 
     altura:${person.height}, 
@@ -17,14 +19,14 @@ async function getChat(person) {
     Retorne uma resposta em forma de JSON, e É OBRIGATORIAMENTE QUE FAÇA A DIETA DE SEGUNDA À DOMINGO. Quero dados gerais de ingestão calórica diária, ingestão de proteína diária e 
     ingestão de carboidratos diários dessa dieta criada e também quaisquer outras informações que você julgar útil. Segue o modelo do JSON, PREENCHA TODOS OS 
     DADOS VAZIOS OBRIGATORIAMENTE DE ACORDO COM A DIETA SOLICITADA, SIGA ESTRITAMENTE O MODELO DO JSON E NÃO ESQUEÇA NENHUM CAMPO VAZIO!! e principalmente, 
-    nunca esqueça de colocar todos os dias de segunda a domingo com todas as refeições preenchidas!! :
+    nunca esqueça de colocar todos os dias de segunda a domingo com todas as refeições preenchidas e também os dados da ingestão diária(ex: proteina: 180g, carboidratos: 300g e calorias: 4000Kcal) de forma alguma!!!! :
     {
       "Nome": "${person.name}",
       "Objetivo": "${person.objective}",
       "IngestaoDiaria": {
-        "Proteina": "(valores dinâmicos de acordo com a solicitação da dieta)",
-        "Carboidratos": "(valores dinâmicos de acordo com a solicitação da dieta)",
-        "Calorias": "(valores dinâmicos de acordo com a solicitação da dieta)"
+        "Proteina": "",
+        "Carboidratos": "",
+        "Calorias": ""
       },
       "Refeicoes": [
         {

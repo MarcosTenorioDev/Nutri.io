@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import '../assets/css/GenerateDiet.css';
 import closeBtn from '../assets/images/close.svg';
 import getChat from '../services/api'
@@ -52,22 +52,20 @@ const GenerateDiet = () => {
           isFormValid = false
         } else {
           errorMessageInput.textContent = '';
-          console.log(isFormValid)
         }
       }
     }
 
     if (isFormValid){
       console.log('form enviado')
-      handleSubmit(event)
+      createPerson(event)
     }else{
-      console.log('deu ruim pra tu')
+      console.log('preencha todos os campos obrigatórios, por favor')
     }
     
   }
 
-  const handleSubmit = async (event) => {
-
+  const createPerson = (event) =>{
     const nameInput = event.target.elements.name.value;
     const heightInput = event.target.elements.height.value;
     const weightInput = event.target.elements.weight.value;
@@ -81,8 +79,7 @@ const GenerateDiet = () => {
     const dailyRefsNumberInput = event.target.elements.dailyRefsNumber.value;
     const livesInput = event.target.elements.lives.value;
 
-    setPerson((prevPerson) => ({
-      ...prevPerson,
+    setPerson(() => ({
       name: nameInput,
       height: heightInput,
       weight: weightInput,
@@ -96,7 +93,16 @@ const GenerateDiet = () => {
       dailyRefsNumber: dailyRefsNumberInput,
       lives: livesInput,
     }));
-    console.log(person) 
+
+  }
+
+  useEffect(() => {
+    if (person.name !== ''){
+      handleSubmit(person);
+    }
+  }, [person]);
+
+  const handleSubmit = async (person) => { 
     const response = await getChat(person);
     console.log(response)
     updateDietData(response);
