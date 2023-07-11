@@ -33,8 +33,8 @@
 .closeModalBtn{
     border: none;
     background: none;
-    width: 100%;
     display: flex;
+    align-self: flex-end;
     justify-content: flex-end;
     align-items: center;
 }
