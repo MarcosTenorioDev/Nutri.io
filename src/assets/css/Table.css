@@ -19,7 +19,16 @@
 .logoContainer{
     display: flex;
     color: #54BF29;
+    align-items: center;
+    justify-content: space-between;
     padding: 0px 0px 15px 0px;
+}
+.closeTableBtn{
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .tableTitle{

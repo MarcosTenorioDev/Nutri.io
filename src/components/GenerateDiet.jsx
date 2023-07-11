@@ -9,6 +9,7 @@ const GenerateDiet = () => {
   const body = document.body;
   const [showModal, setShowModal] = useState(false);
   const { updateDietData } = useContext(DataContext);
+  const [isLoading, setLoading] = useState(false)
 
   const openModal = () => {
     setShowModal(true);
@@ -21,6 +22,10 @@ const GenerateDiet = () => {
     setShowModal(false);
     body.classList.remove('modalOpen');
     Modal();
+  }
+
+  const loading = () => {
+    setLoading(true);
   }
 
   const [person, setPerson] = useState({
@@ -58,6 +63,8 @@ const GenerateDiet = () => {
 
     if (isFormValid){
       console.log('form enviado')
+      closeModal();
+      setLoading(true);
       createPerson(event)
     }else{
       console.log('preencha todos os campos obrigatórios, por favor')
@@ -104,6 +111,7 @@ const GenerateDiet = () => {
 
   const handleSubmit = async (person) => { 
     const response = await getChat(person);
+    setLoading(false);
     console.log(response)
     updateDietData(response);
   }
@@ -220,6 +228,17 @@ const GenerateDiet = () => {
 
             </div>
           </div>
+        </>
+      )
+    }
+
+    if(isLoading === true){
+      return(
+        <>
+        <div className='modal'>
+          <h1>aguardandoApi</h1>
+        </div>
+        
         </>
       )
     }

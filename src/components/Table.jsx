@@ -14,11 +14,7 @@ const Table = () => {
 
     useEffect(() => {
         if (person.dietData !== null) {
-            console.log('Aqui está a pessoa da tabela:', person);
-            console.log(tableReady)
             setTable(true)
-        } else {
-            console.log('Pessoa não existe ainda');
         }
     }, [person]);
 
@@ -31,10 +27,10 @@ const Table = () => {
                     <div className='tableHeader'>
                         <div className='logoContainer'>
                             <h1 className='logo'>NUTRI.IO</h1>
-                            <button className='closeModalBtn'><img src={closeBtn} alt="" className='closeBtn' /></button>
+                            <button className='closeTableBtn' onClick={() => setTable(false)}><img src={closeBtn} alt="" className='closeBtn' /></button>
                         </div>
 
-                        <h2 className='tableTitle'>Olá, {person.dietData.Nome}, Aqui está sua dieta com objetivo de {person.dietData.Objetivo}. Espero que goste! </h2>
+                        <h2 className='tableTitle'>Olá, {person.dietData.Nome}! Aqui está sua dieta com objetivo de {person.dietData.Objetivo}. Espero que goste! </h2>
 
                         
                     </div>
@@ -77,7 +73,7 @@ const Table = () => {
                             <h3 className='dietDescriptionTitle'>essa dieta contém aproximadamente :</h3>
                             <p className='dietDescriptionContent'>Calorias Diárias: {person.dietData.IngestaoDiaria.Calorias}</p>
                             <p className='dietDescriptionContent'>Proteinas Diarias: {person.dietData.IngestaoDiaria.Proteina}</p>
-                            <p className='dietDescriptionContent'>Carboidratos Diários {person.dietData.IngestaoDiaria.Carboidratos}</p>
+                            <p className='dietDescriptionContent'>Carboidratos Diários: {person.dietData.IngestaoDiaria.Carboidratos}</p>
                         </div>
                         <div className='dietDownload'>
                             <h3 className='dietDescriptionTitle'>faça o download da dieta</h3>
@@ -105,7 +101,7 @@ const Table = () => {
             </div>
             </div>
                 ) : (
-                    <h1>aguardando resposta da API</h1>
+                    <></>
                 )
                 }
 
