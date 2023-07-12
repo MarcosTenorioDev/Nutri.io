@@ -8,6 +8,8 @@
     padding: 20px 40px;
     border-radius: 35px;
     border: 2px solid #37811F;
+    margin: 30px 0;
+    
 }
 
 .tableHeader{
@@ -171,3 +173,104 @@
     font-size: 17px;
 }
 
+@media (max-width: 1000px){
+    .tableTitle{
+        font-size: 1.1rem;
+    }
+    #tableDiet{
+        margin: 0;
+    }
+    .tableResponsiveContainer{
+        margin-bottom: 20px;
+        max-width: 100%;
+        max-height: 600px;
+        overflow: auto;
+        border: 2px solid #37811F;
+    }
+    .suggestionTitle{
+        font-size: 14px;
+    }
+    .dietDescription{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 200px;
+    }
+    .dietDescriptionTitle{
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .dietDescriptionContent{
+        font-size: 14px;
+    }
+    .tableButton{
+        font-size: 14px;
+        width: 90px;
+    }
+    .tableImgBtn{
+        width: 20px;
+    }
+    .suggestionContent{
+        font-size: 16px;
+    }
+    .copyright{
+        font-size: 14px;
+    }
+    #tableDiet thead{
+        background-color: #54BF29;
+        color: #FFF;
+    }
+    
+    #tableDiet thead tr th{
+        padding: 2px;
+        font-size: 12px;
+        
+    }
+    
+    #tableDiet tbody tr td{
+        border: 2px solid #37811F;
+        padding: 2px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 700px){
+    .tableContainer{
+        width: 90%;
+    }
+}
+
+@media (max-width: 520px){
+    .descriptionContainer{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .dietDescription{
+        width: 100%;
+    }
+    .dietDownload{
+        border-top: 1px solid #a7a7a7;
+        padding-top: 4px;
+    }
+    .suggestionContent{
+        font-size: 14px;
+    }
+    .tableTitle{
+        font-size: 14px;
+        padding: 15px 0;
+    }
+    .suggestionContentContainer{
+        padding: 0px 10px 10px;
+        border-top : none;
+    }
+    .suggestionTitle{
+        border-top: 1px solid #a7a7a7;
+        padding-top: 4px;
+    }
+    .tableResponsiveContainer{
+        max-height: 400px;
+    }
+}

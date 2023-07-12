@@ -9,14 +9,21 @@ const Table = () => {
     const person = useContext(DataContext);
     const date = new Date();
     const year = date.getFullYear();
+    const body = document.body;
 
     const [tableReady, setTable] = useState(false)
 
     useEffect(() => {
         if (person.dietData !== null) {
             setTable(true)
+            body.classList.add('modalOpen');
         }
     }, [person]);
+
+    const closeTable = () =>{
+        setTable(false);
+        body.classList.remove('modalOpen');
+    }
 
 
     return (
@@ -27,7 +34,7 @@ const Table = () => {
                     <div className='tableHeader'>
                         <div className='logoContainer'>
                             <h1 className='logo'>NUTRI.IO</h1>
-                            <button className='closeTableBtn' onClick={() => setTable(false)}><img src={closeBtn} alt="" className='closeBtn' /></button>
+                            <button className='closeTableBtn' onClick={closeTable}><img src={closeBtn} alt="" className='closeBtn' /></button>
                         </div>
 
                         <h2 className='tableTitle'>Olá, {person.dietData.Nome}! Aqui está sua dieta com objetivo de {person.dietData.Objetivo}. Espero que goste! </h2>
@@ -36,6 +43,7 @@ const Table = () => {
                     </div>
 
 
+                    <div className='tableResponsiveContainer'>
                     <table id="tableDiet">
                             <thead>
                                 <tr>
@@ -65,21 +73,26 @@ const Table = () => {
                             })}
                             </tbody>
                     </table>
+                    </div>
+                    
 
                     
 
                     <div className='descriptionContainer'>
                         <div className='dietDescription'>
                             <h3 className='dietDescriptionTitle'>essa dieta contém aproximadamente :</h3>
-                            <p className='dietDescriptionContent'>Calorias Diárias: {person.dietData.IngestaoDiaria.Calorias}</p>
-                            <p className='dietDescriptionContent'>Proteinas Diarias: {person.dietData.IngestaoDiaria.Proteina}</p>
-                            <p className='dietDescriptionContent'>Carboidratos Diários: {person.dietData.IngestaoDiaria.Carboidratos}</p>
+                            <div>
+                                <p className='dietDescriptionContent'>Calorias Diárias: {person.dietData.IngestaoDiaria.Calorias}</p>
+                                <p className='dietDescriptionContent'>Proteinas Diarias: {person.dietData.IngestaoDiaria.Proteina}</p>
+                                <p className='dietDescriptionContent'>Carboidratos Diários: {person.dietData.IngestaoDiaria.Carboidratos}</p>
+                            </div>
+                            
                         </div>
                         <div className='dietDownload'>
-                            <h3 className='dietDescriptionTitle'>faça o download da dieta</h3>
+                            <h3 className='dietDescriptionTitle'>faça o download da dieta :</h3>
                             <div className='tableBtnContainer'>
-                                <button className='tableButton'>PDF <img src={pdfImage} alt="" /></button>
-                                <button className='tableButton'>CSV <img src={csvImage} alt="" /></button>
+                                <button className='tableButton'>PDF <img className='tableImgBtn' src={pdfImage} alt="" /></button>
+                                <button className='tableButton'>CSV <img className='tableImgBtn' src={csvImage} alt="" /></button>
                             </div>
                         </div>
 

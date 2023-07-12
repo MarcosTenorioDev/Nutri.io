@@ -18,3 +18,9 @@
     max-width: 1980px;
 
 }
+
+@media (max-width:500px){
+    .logo{
+        font-size: 22px;
+    }
+}
