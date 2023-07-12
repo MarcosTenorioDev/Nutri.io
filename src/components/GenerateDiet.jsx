@@ -26,6 +26,12 @@ const GenerateDiet = () => {
 
   const loading = () => {
     setLoading(true);
+    body.classList.add('modalOpen');
+  }
+
+  const closeLoading = () => {
+    setLoading(false);
+    body.classList.remove('modalOpen');	
   }
 
   const [person, setPerson] = useState({
@@ -64,7 +70,7 @@ const GenerateDiet = () => {
     if (isFormValid){
       console.log('form enviado')
       closeModal();
-      setLoading(true);
+      loading();
       createPerson(event)
     }else{
       console.log('preencha todos os campos obrigatórios, por favor')
@@ -111,7 +117,7 @@ const GenerateDiet = () => {
 
   const handleSubmit = async (person) => { 
     const response = await getChat(person);
-    setLoading(false);
+    closeLoading();
     console.log(response)
     updateDietData(response);
   }
@@ -235,8 +241,17 @@ const GenerateDiet = () => {
     if(isLoading === true){
       return(
         <>
-        <div className='modal'>
-          <h1>aguardandoApi</h1>
+        <div className='modalLoading'>
+          <div className='loadingContainer'>
+            <div className='loadingHeader'>
+              <h2 className='loadingTitle'>Olá, {person.name}!</h2>
+              <p className='loadingDescription'>Aguarde um pouco, nossos robôs estão criando a melhor dieta sob medida exclusivamente para você!</p>
+            </div>
+            <div className='loadingAnimationContainer'><div class="lds-dual-ring"></div></div>
+            <div className='loadingFooter'>
+              <p className='loadingDescription'>Esse processo dura menos de 3 minutos</p>
+            </div>
+          </div>
         </div>
         
         </>

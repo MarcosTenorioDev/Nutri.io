@@ -152,6 +152,86 @@
     overflow-y:hidden;
 }
 
+.loadingContainer{
+    background-color: #EEFFFF;
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+    padding: 25px 25px 20px 25px;
+    border: 1px solid #37811F;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modalLoading{
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .7);
+    transition: opacity .2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.loadingHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.loadingTitle{
+    text-align: center;
+    font-family: inter, sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.loadingDescription{
+text-align: center;
+font-family: inter, sans-serif;
+font-weight: 500;
+font-size: 24px;
+}
+
+.loadingAnimationContainer{
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #37811F transparent #37811F transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
 @media (max-width: 1000px){ 
     .button{
         width: 100%;
@@ -233,4 +313,52 @@
         font-weight: 500;
         width: 100%;
     }
+}
+@media (max-width: 500px){
+    .loadingHeader{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .loadingTitle{
+        text-align: center;
+        font-family: inter, sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+    }
+    
+    .loadingDescription{
+    text-align: center;
+    font-family: inter, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    }
+    
+    .loadingAnimationContainer{
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .lds-dual-ring {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+      }
+      .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: #37811F transparent #37811F transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+      }
 }
