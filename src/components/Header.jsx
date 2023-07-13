@@ -6,7 +6,7 @@ const Header = () =>{
     return (
         <header className='headerContainer'>
             <div className="titleContainer">   
-                <h1 id='title'>Faça sua dieta completa em menos de 2 minutos!</h1>
+                <h1 id='title'>Faça sua dieta completa em menos de 3 minutos!</h1>
                 <h2 id='subtitle'>Sua dieta, da forma personalizada com a sua cara!</h2>
             </div>
             <div className="imgContainter">

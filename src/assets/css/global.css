@@ -18,6 +18,10 @@
     max-width: 1980px;
 
 }
+input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
 
 @media (max-width:500px){
     .logo{

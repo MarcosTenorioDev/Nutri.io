@@ -45,7 +45,7 @@
 
 
 .modal{
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100vw;
     right: 0;
@@ -165,7 +165,7 @@
 }
 
 .modalLoading{
-    position: absolute;
+    position:fixed;
     height: 100%;
     width: 100vw;
     right: 0;
@@ -248,17 +248,7 @@ font-size: 24px;
         width: 100%;
     }
     .modal{
-        position: absolute;
-        height: 100%;
-        width: 100vw;
-        right: 0;
-        top: 0;
-        background-color: rgba(0, 0, 0, .7);
-        transition: opacity .2s ease;
-        display: flex;
-        justify-content: center;
         align-items: start;
-        overflow: auto;
     }
     .overlay{
         border: 2px solid #37811F;

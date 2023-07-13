@@ -26,6 +26,7 @@ const GenerateDiet = () => {
 
   const loading = () => {
     setLoading(true);
+    window.scrollTo(0, 0);
     body.classList.add('modalOpen');
   }
 
@@ -128,7 +129,6 @@ const GenerateDiet = () => {
     if (showModal === true) {
 
       return (
-        <>
           <div className="modal">
             <div className='overlay'>
               <button className='closeModalBtn' onClick={closeModal}><img src={closeBtn} alt="" className='closeBtn' /></button>
@@ -145,7 +145,7 @@ const GenerateDiet = () => {
                         <div className='inputContainer'>
                           <div className='input'>
                             <label htmlFor="height" className='modalLabel'>Altura:</label>
-                            <input type="number" id='height' name='height' className='modalSmallInput' placeholder='Ex: 1,74' />
+                            <input type="number" id='height' name='height' className='modalSmallInput' placeholder='Ex: 174' />
                             <p id='heightErrorMessage' className='errorMessage'></p>
                           </div>
                           <div className='input'>
@@ -234,10 +234,8 @@ const GenerateDiet = () => {
 
             </div>
           </div>
-        </>
       )
     }
-
     if(isLoading === true){
       return(
         <>
