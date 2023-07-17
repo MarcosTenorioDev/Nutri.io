@@ -12,7 +12,7 @@ const Table = () => {
   const date = new Date();
   const year = date.getFullYear();
   const body = document.body;
-
+  const [isDownloading, setIsDownloading] = useState(false);
   const [tableReady, setTable] = useState(false);
 
   useEffect(() => {
@@ -30,6 +30,7 @@ const Table = () => {
   const pdfRef = useRef();
 
   const downloadPDF = () => {
+    setIsDownloading(true);
     const input = pdfRef.current;
 
     input.style.height = `1080px`;
@@ -94,7 +95,7 @@ const Table = () => {
       suggestionTitle.style.fontSize = "14px";
       suggestionContent.style.fontSize = "14px";
 
-      if (input.clientWidth < 1000) {
+      if (window.innerWidth < 1000) {
         tableContainer.style.width = "90%";
         tdElements.forEach((td) => {
           td.style.padding = "0px";
@@ -124,6 +125,7 @@ const Table = () => {
 
       pdf.addImage(imgData, "PNG", 0, 0, componentWidth, componentHeight);
       pdf.save("diet.pdf");
+      setIsDownloading(false);
     });
   };
 
@@ -140,10 +142,11 @@ const Table = () => {
                 </button>
               </div>
 
-                        <h2 className='tableTitle'>Olá, {person.dietData.Nome}! Aqui está sua dieta com objetivo de {person.dietData.Objetivo}. Espero que goste! </h2>
-
-                        
-                    </div>
+              <h2 className="tableTitle">
+                Olá, {person.dietData.Nome}! Aqui está sua dieta com objetivo de{" "}
+                {person.dietData.Objetivo}. Espero que goste!{" "}
+              </h2>
+            </div>
 
             <div className="tableResponsiveContainer">
               <table id="tableDiet">
@@ -226,6 +229,13 @@ const Table = () => {
         </div>
       ) : (
         <></>
+      )}
+      {isDownloading && (
+        <div className="modalDietTable">
+          <div className="tableDownloadAnimationContainer">
+            <div class="lds-dual-ring"></div>
+          </div>
+        </div>
       )}
     </div>
   );
