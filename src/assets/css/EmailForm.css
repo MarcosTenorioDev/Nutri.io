@@ -4,21 +4,22 @@
 }
 .contactContainer{
     max-width: fit-content;
-    margin-top: 40px;
+    margin: 60px 0px;
 }
 .emailHeaderContainer{
     text-align: center;
-    line-height: 40px;
+    line-height: 45px;
     margin: 0px 0px;
     font-family: Poppins;
 }
 .emailHeaderTitle{
-    font-size: 28px;
+    font-size: 32px;
+    font-weight: 700;
 }
 
 .emailHeaderSub{
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 18px;
 }
 .emailForm {
   padding: 30px;
