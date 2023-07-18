@@ -1,0 +1,51 @@
+#emailSmallInputContainer {
+  display: flex;
+  gap: 10px;
+}
+.contactContainer{
+    max-width: fit-content;
+    margin-top: 40px;
+}
+.emailHeaderContainer{
+    text-align: center;
+    line-height: 40px;
+    margin: 0px 0px;
+    font-family: Poppins;
+}
+.emailHeaderTitle{
+    font-size: 28px;
+}
+
+.emailHeaderSub{
+    font-weight: 400;
+    font-size: 16px;
+}
+.emailForm {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#message {
+  padding-top: 15px;
+  height: 180px;
+  resize: none;
+}
+.inputContact{
+    margin-top: 5px;
+}
+.submitButton {
+  color: #000;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 2px solid #37811F;
+  box-shadow: 2px 4px 2px 0px rgba(0, 0, 0, 0.25);
+  width: 120px;
+  align-self: center;
+  cursor: pointer;
+  margin-top: 20px;
+}

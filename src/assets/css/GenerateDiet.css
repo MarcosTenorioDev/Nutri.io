@@ -119,17 +119,6 @@
     width: 100%;
     max-width: 430px;
 }
-
-.modalInput{
-    height: 40px;
-    border-radius: 15px;
-    border: 2px solid #37811F;
-    outline: none;
-    padding: 0px 20px;
-    font-family: poppins, sans-serif;
-    font-weight: 500;
-    width: 100%;  
-}
 .errorMessage{
     font-family: poppins, sans-serif;
     font-size: 14px;

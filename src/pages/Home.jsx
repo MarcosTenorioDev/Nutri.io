@@ -4,6 +4,7 @@ import '../assets/css/global.css'
 import Header from '../components/Header'
 import Banner from "../components/Banner";
 import Table from "../components/Table"
+import EmailForm from "../components/EmailForm";
 
 
 const Home = () => {
@@ -20,6 +21,8 @@ const Home = () => {
       </div>
       <Banner />
       <Table />
+      <EmailForm />
+
       
     </div>
   );
