@@ -160,9 +160,9 @@ const GenerateDiet = () => {
                             <p id='ageErrorMessage' className='errorMessage'></p>
                           </div>
                           <div className='input'>
-                            <label hmtlFor="sex" className='modalLabel'>sexo:</label>
+                            <label htmlFor="sex" className='modalLabel'>sexo:</label>
                             <select id="sex" name="sex" className='modalSmallInput'>
-                              <option value="" selected></option>
+                              <option value=""></option>
                               <option value="Masculino">Masculino</option>
                               <option value="Feminino">Feminino</option>
                             </select>
@@ -174,10 +174,11 @@ const GenerateDiet = () => {
 
                       <label htmlFor="" className='modalLabel'>Qual o seu biotipo?</label>
                       <select name="bioType" id="bioType" className='modalInput'>
-                        <option value="" selected></option>
+                        <option value=""></option>
                         <option value="Ectomorfo">Ectomorfo</option>
                         <option value="Mesomorfo">Mesomorfo</option>
                         <option value="Endomorfo">Endomorfo</option>
+                        <option value="Não sei">Não sei</option>
                       </select>
                       <p id='bioTypeErrorMessage' className='errorMessage'></p>
 
@@ -187,7 +188,6 @@ const GenerateDiet = () => {
                         <option value="diariamente">Diariamente</option>
                         <option value="3-4 vezes por semana">3-4 vezes por semana</option>
                         <option value="1-2 vezes por semana">1-2 vezes por semana</option>
-                        <option value="menos de uma vez por semana">Menos de uma vez por semana</option>
                         <option value="não pratico atividade física">Não pratico atividade física</option>
                       </select>
                       <p id='activityFrequenceErrorMessage' className='errorMessage'></p>
