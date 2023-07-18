@@ -16,3 +16,9 @@
     font-size: 18px;
     color: #FFF;
   }
+
+  @media(max-width: 1000px){
+    .footerText{
+        font-size: 14px;
+    }
+  }
