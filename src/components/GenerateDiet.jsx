@@ -69,7 +69,6 @@ const GenerateDiet = () => {
     }
 
     if (isFormValid){
-      console.log('form enviado')
       closeModal();
       loading();
       createPerson(event)
@@ -119,7 +118,6 @@ const GenerateDiet = () => {
   const handleSubmit = async (person) => { 
     const response = await getChat(person);
     closeLoading();
-    console.log(response)
     updateDietData(response);
   }
 

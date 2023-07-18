@@ -2,8 +2,6 @@ import API_KEY from "./apikey";
 import axios from "axios"
 
 async function getChat(person) { 
-    console.log(person)
-    console.log('aguarde, estamos criando a sua dieta')
     const OPENAI_API_KEY = API_KEY;
     const content = `Faça uma dieta para uma pessoa chamada ${person.name}, 
     altura:${person.height}, 
@@ -11,22 +9,23 @@ async function getChat(person) {
     sexo: ${person.sex}, 
     biotipo: ${person.biotype},
     que pratica atividade física: ${person.activityFrequence},
-    não adicione nada que contenha: ${person.restrictFoods},
-    não esqueça de adicionar: ${person.indispensableFoods},
+    comidas restritas (não adicione nada que contenha): ${person.restrictFoods},
+    comidas indispensáveis (não esqueça de adicionar): ${person.indispensableFoods},
     objetivo da dieta: ${person.objective},
     gere de ${person.dailyRefsNumber} refeições diárias para atingir o objetivo, caso possível, caso não, explique o motivo,
     escolha preferencialmente alimentos fáceis de encontrar em: ${person.lives}.
     Retorne uma resposta em forma de JSON, e É OBRIGATORIAMENTE QUE FAÇA A DIETA DE SEGUNDA À DOMINGO. Quero dados gerais de ingestão calórica diária, ingestão de proteína diária e 
     ingestão de carboidratos diários dessa dieta criada e também quaisquer outras informações que você julgar útil. Segue o modelo do JSON, PREENCHA TODOS OS 
     DADOS VAZIOS OBRIGATORIAMENTE DE ACORDO COM A DIETA SOLICITADA, SIGA ESTRITAMENTE O MODELO DO JSON E NÃO ESQUEÇA NENHUM CAMPO VAZIO!! e principalmente, 
-    nunca esqueça de colocar todos os dias de segunda a domingo com todas as refeições preenchidas e também os dados da ingestão diária(ex: proteina: 180g, carboidratos: 300g e calorias: 4000Kcal) de forma alguma!!!! :
+    nunca esqueça de colocar todos os dias de segunda a domingo com todas as refeições preenchidas e também os dados da ingestão diária(ex: proteina: 180g, carboidratos: 300g e calorias: 4000Kcal) de forma alguma!!!!
+    lembre-se também de sempre especificar a quantidade das porções ou unidades de comidas geradas e também busque não repetir as refeições mais de uma vez durante a semana, se atente a isso:
     {
       "Nome": "${person.name}",
       "Objetivo": "${person.objective}",
       "IngestaoDiaria": {
-        "Proteina": "",
-        "Carboidratos": "",
-        "Calorias": ""
+        "Proteina": "...g",
+        "Carboidratos": "...g",
+        "Calorias": "...Kcal"
       },
       "Refeicoes": [
         {
