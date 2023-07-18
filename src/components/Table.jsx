@@ -6,6 +6,7 @@ import pdfImage from "../assets/images/pdfImage.svg";
 import csvImage from "../assets/images/csvImage.svg";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { CSVLink, CSVDownload } from 'react-csv';
 
 const Table = () => {
   const person = useContext(DataContext);
@@ -14,11 +15,27 @@ const Table = () => {
   const body = document.body;
   const [isDownloading, setIsDownloading] = useState(false);
   const [tableReady, setTable] = useState(false);
+  const [CSVData, setCSVData] = useState([])
 
   useEffect(() => {
     if (person.dietData !== null) {
       setTable(true);
       body.classList.add("modalOpen");
+
+      const newCSVData = person.dietData.Refeicoes.map((refeicao) => {
+        return {
+          Dia: refeicao.Dia,
+          "Café da manhã": refeicao.CafeDaManha,
+          "Lanche da manhã": refeicao.LancheDaManha,
+          Almoço: refeicao.Almoco,
+          "Lanche da tarde": refeicao.LancheDaTarde,
+          Jantar: refeicao.Jantar,
+          Ceia: refeicao.Ceia,
+        };
+      });
+
+      setCSVData(newCSVData);
+
     }
   }, [person]);
 
@@ -205,9 +222,14 @@ const Table = () => {
                   <button className="tableButton" onClick={downloadPDF}>
                     PDF <img className="tableImgBtn" src={pdfImage} alt="" />
                   </button>
-                  <button className="tableButton">
-                    CSV <img className="tableImgBtn" src={csvImage} alt="" />
-                  </button>
+                  <CSVLink
+                  className="tableButton"
+                  data={CSVData}
+                  target="_blank"
+                  filename={"diet.csv"}
+                >
+                  CSV <img className="tableImgBtn" src={csvImage} alt="" />
+                </CSVLink>
                 </div>
               </div>
             </div>
