@@ -18,7 +18,7 @@ async function getChat(person) {
     ingestão de carboidratos diários dessa dieta criada e também quaisquer outras informações que você julgar útil. Segue o modelo do JSON, PREENCHA TODOS OS 
     DADOS VAZIOS OBRIGATORIAMENTE DE ACORDO COM A DIETA SOLICITADA, SIGA ESTRITAMENTE O MODELO DO JSON E NÃO ESQUEÇA NENHUM CAMPO VAZIO!! e principalmente, 
     nunca esqueça de colocar todos os dias de segunda a domingo com todas as refeições preenchidas e também os dados da ingestão diária(ex: proteina: 180g, carboidratos: 300g e calorias: 4000Kcal) de forma alguma!!!!
-    lembre-se também de sempre especificar a quantidade das porções ou unidades de comidas geradas e também busque não repetir as refeições mais de uma vez durante a semana, se atente a isso:
+    lembre-se também de sempre especificar a quantidade das porções ou unidades de comidas geradas e também **busque não repetir as refeições mais de uma vez durante a semana, se atente a isso**:
     {
       "Nome": "${person.name}",
       "Objetivo": "${person.objective}",

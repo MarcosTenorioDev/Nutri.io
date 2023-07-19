@@ -14,7 +14,7 @@ const Navbar = () => {
 
 
                 <ul className='navbar-list'>
-                    <Link className='navButton'><img src={user} alt="" className='navBarIcon' /> Sign-In </Link>
+                    {/* <Link className='navButton'><img src={user} alt="" className='navBarIcon' /> Sign-In </Link> */}
                     <Link className='navButton'><img src={login} alt="" className='navBarIcon' />Login</Link>
                 </ul>
 

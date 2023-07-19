@@ -110,7 +110,6 @@ const Table = () => {
       buttonTable.style.display = "";
       logoDietTable.style.fontSize = "";
       suggestionTitle.style.fontSize = "14px";
-      suggestionContent.style.fontSize = "14px";
 
       if (window.innerWidth < 1000) {
         tableContainer.style.width = "90%";
@@ -122,12 +121,14 @@ const Table = () => {
           content.style.fontSize = "14px";
         });
         dietDescriptionTitle.style.fontSize = "14px";
+        suggestionContent.style.fontSize = "14px";
       } else {
         tableContainer.style.width = "70%";
         const dietDescriptionTitle = input.querySelector(
           ".dietDescriptionTitle"
         );
         dietDescriptionTitle.style.fontSize = "18px";
+        suggestionContent.style.fontSize = "16px";
       }
 
       const imgData = canvas.toDataURL("image/png");
