@@ -14,7 +14,7 @@ O NUTRI.IO oferece as seguintes funcionalidades:
 
 ## Como usar o NUTRI.IO
 
-1. Acesse o site do NUTRI.IO em [www.nutri.io](https://nutri-io.vercel.app/).
+1. Acesse o site do NUTRI.IO em [www.nutri-io.vercel.app](https://nutri-io.vercel.app/).
 
 2. Preencha as informações solicitadas, como idade, peso, altura, sexo, nível de atividade física e objetivos da dieta. Certifique-se de fornecer dados precisos para obter uma dieta personalizada mais adequada às suas necessidades.
 
