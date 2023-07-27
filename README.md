@@ -48,6 +48,19 @@ Se você estiver interessado em contribuir para o desenvolvimento do NUTRI.IO, s
 
 Antes de enviar qualquer alteração, certifique-se de revisar as diretrizes de contribuição e seguir as práticas recomendadas.
 
+## Futuras Funcionalidades:
+
+- [ ] **Assistente de chat:** Adicionar a funcionalidade de um assistente de chat para tirar possíveis dúvidas sobre dieta e alimentação.
+
+- [ ] **Implementação do Backend para Registro de Usuário:** Adicionar uma funcionalidade de backend que permitirá aos usuários criar contas no NUTRI.IO, possibilitando o acesso personalizado e seguro aos recursos do aplicativo.
+
+- [ ] **Criação de Rastreamento de Hábitos:** Desenvolver uma ferramenta de rastreamento de hábitos que permitirá aos usuários monitorar suas atividades diárias, facilitando o acompanhamento e a melhoria de seus hábitos alimentares.
+
+- [ ] **Tracking de Peso e Gráficos de Progresso:** Implementar um sistema de rastreamento do peso corporal dos usuários ao longo do tempo. Além disso, proporcionar gráficos visuais que demonstrarão a evolução do peso, auxiliando os usuários a alcançar seus objetivos de forma mais eficaz.
+
+- [ ] **Criação de Planos de Assinatura Personalizados:** Introduzir planos de assinatura no NUTRI.IO, que permitirão aos usuários ter acesso a recursos avançados, como dietas personalizadas e a utilização de um assistente virtual para orientações e suporte individualizado.
+
+
 ## Suporte
 
 Se você precisar de ajuda ou tiver alguma dúvida relacionada ao NUTRI.IO, entre em contato conosco através do seguinte canal:
