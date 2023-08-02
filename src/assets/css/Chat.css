@@ -1,0 +1,93 @@
+#chatBot {
+  position: fixed;
+  bottom: 0;
+  right: 14rem;
+  width: 350px;
+  border: 2px solid #37811f;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  transition: height 0.3s ease;
+}
+.chatBar {
+  background-color: #37811f;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 15px;
+  gap: 8px;
+}
+.logoChat{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #37811f;
+  object-fit: cover;
+
+}
+
+.chatOpen {
+  background-color: #EEFFFF;
+}
+.chatClose {
+  background-color: #FFF;
+  height: 0px;
+}
+.chatMessagesBaloon{
+  border: 1px solid #37811f;
+  padding: 10px;
+  background-color: #FFF;
+  border-radius: 20px;
+  font-family: poppins, sans-serif;
+  font-size: 14px;
+}
+
+.chatMessages {
+  height: 280px;
+  padding: 20px 35px 20px 10px;
+}
+.chatBotMessages{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.chatInputContainer{
+    height: 100%;
+    padding: 5px 15px 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.chatInput{
+border: 1px solid #37811f;
+border-radius: 15px;
+height: 70px;
+width: 100%;
+outline: none;
+vertical-align: top;
+resize: none;
+padding: 10px;
+font-family: poppins, sans-serif;
+}
+
+#chatSendButton{
+  padding: 5px 10px;
+  height: fit-content;
+  border-radius: 25px;
+  font-size: 14px; 
+}
+.closeChatButton{
+  width: 12px;
+  height: 2px;
+  background-color: #FFF;
+}
+.chatButton{
+  background: none;
+  border: none;
+  height: 100%;
+  cursor: pointer;
+}
+

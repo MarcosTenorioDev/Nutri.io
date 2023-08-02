@@ -6,6 +6,7 @@ import Banner from "../components/Banner";
 import Table from "../components/Table"
 import EmailForm from "../components/EmailForm";
 import Footer from "../components/Footer"
+import Chat from "../components/Chat"
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
   return (
     <div className="homePage">
       <Navbar />
+      <Chat />
 
       <div className="contentHeader">  
         <Header />
