@@ -1,18 +1,28 @@
 import React, { useState } from "react";
 import "../assets/css/Chat.css";
 import maximize from "../assets/images/maximize.svg";
-import logoChat from "../assets/images/logoChat.png";
 import ChatMessages from "../components/ChatMessages";
+import ChatBot from "../services/chatBot";
 
 const Chat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
-  const sendMessage = () => {
+  const sendAnswer = () => {
+    setInputValue("");
     const newMessages = [...messages, { text: inputValue, role: "user" }];
     setMessages(newMessages);
-    setInputValue("");
+    getChatMessage(newMessages);
+  };
+
+  const getChatMessage = async (newMessages) => {
+    const chatResponse = await ChatBot(inputValue);
+    const newResponse = [
+      ...newMessages,
+      { text: chatResponse, role: "system" },
+    ];
+    setMessages(newResponse);
   };
 
   const openChat = () => {
@@ -38,9 +48,8 @@ const Chat = () => {
         <div className={isOpen ? "chatOpen" : "chatClose"}>
           <div className="chatMessages">
             <ChatMessages
-              imageMessage={logoChat}
               messageBaloon={
-                "Olá, sou o nutri.helper! a IA que vai tirar todas as suas dúvidas em relação a sua alimentação!"
+                "Olá, sou o Nutri.Helper! a IA que vai tirar todas as suas dúvidas em relação a sua alimentação!"
               }
               role="system"
             />
@@ -48,12 +57,10 @@ const Chat = () => {
             {messages.map((message, index) => (
               <ChatMessages
                 key={index}
-                imageMessage={logoChat}
                 messageBaloon={message.text}
                 role={message.role}
               />
             ))}
-             
           </div>
           <div className="chatInputContainer">
             <textarea
@@ -66,14 +73,14 @@ const Chat = () => {
               }}
               onKeyPress={(e) => {
                 if (e.key === "Enter") {
-                  sendMessage();
+                  sendAnswer();
                 }
               }}
             />
             <button
-              className="button"
+              className="buttonChat"
               id="chatSendButton"
-              onClick={sendMessage}
+              onClick={sendAnswer}
             >
               enviar
             </button>

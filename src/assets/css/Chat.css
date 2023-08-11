@@ -17,13 +17,25 @@
   padding: 0px 15px;
   gap: 8px;
 }
+.buttonChat{
+  background-color: #37811F;
+    padding: 20px 35px;
+    font-size: 20px;
+    font-family: poppins, sans-serif;
+    border-radius: 15px;
+    display: inline-block;
+    color: white;
+    border: none;
+    opacity: 100%;
+    cursor: pointer;
+}
 .logoChat{
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 1px solid #37811f;
   object-fit: cover;
-
+  
 }
 
 .chatOpen {
@@ -55,14 +67,14 @@
 }
 .chatBotMessages{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 15px;
 }
 .chatUserMessages{
   display: flex;
   justify-content: flex-end;
   flex-flow: row-reverse;
-  align-items: center;
+  align-items: flex-start;
   gap: 15px;
 }
 
