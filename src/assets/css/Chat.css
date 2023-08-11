@@ -40,14 +40,28 @@
   border-radius: 20px;
   font-family: poppins, sans-serif;
   font-size: 14px;
+  width: 80%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .chatMessages {
   height: 280px;
-  padding: 20px 35px 20px 10px;
+  padding:  20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-x: scroll;
 }
 .chatBotMessages{
   display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.chatUserMessages{
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: row-reverse;
   align-items: center;
   gap: 15px;
 }
