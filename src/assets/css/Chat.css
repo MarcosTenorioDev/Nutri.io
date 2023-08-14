@@ -3,11 +3,58 @@
   bottom: 0;
   right: 14rem;
   width: 350px;
+  height: fit-content;
   border: 2px solid #37811f;
   border-bottom: none;
   border-radius: 5px 5px 0 0;
   transition: height 0.3s ease;
 }
+.floatIcon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 2px solid rgb(255, 255, 255);
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.floatIconImg {
+  height: 4rem;
+  cursor: pointer;
+}
+.floatIcon:hover {
+  transform: scale(1.1);
+}
+.pulse {
+  animation: pulse-animation 5s infinite;
+}
+.modalOpen {
+  position: fixed;
+  height: 100%;
+  width: 100vw;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: opacity 0.2s ease;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+@keyframes pulse-animation {
+  0%,
+  60% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+
 .chatBar {
   background-color: #37811f;
   height: 25px;
@@ -17,38 +64,37 @@
   padding: 0px 15px;
   gap: 8px;
 }
-.buttonChat{
-  background-color: #37811F;
-    padding: 20px 35px;
-    font-size: 20px;
-    font-family: poppins, sans-serif;
-    border-radius: 15px;
-    display: inline-block;
-    color: white;
-    border: none;
-    opacity: 100%;
-    cursor: pointer;
+.buttonChat {
+  background-color: #37811f;
+  padding: 20px 35px;
+  font-size: 20px;
+  font-family: poppins, sans-serif;
+  border-radius: 15px;
+  display: inline-block;
+  color: white;
+  border: none;
+  opacity: 100%;
+  cursor: pointer;
 }
-.logoChat{
+.logoChat {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 1px solid #37811f;
   object-fit: cover;
-  
 }
 
 .chatOpen {
-  background-color: #EEFFFF;
+  background-color: #eeffff;
 }
 .chatClose {
-  background-color: #FFF;
-  height: 0px;
+  background-color: #fff;
+  display: none;
 }
-.chatMessagesBaloon{
+.chatMessagesBaloon {
   border: 1px solid #37811f;
   padding: 10px;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 20px;
   font-family: poppins, sans-serif;
   font-size: 14px;
@@ -59,18 +105,18 @@
 
 .chatMessages {
   height: 280px;
-  padding:  20px 15px;
+  padding: 20px 15px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   overflow-x: scroll;
 }
-.chatBotMessages{
+.chatBotMessages {
   display: flex;
   align-items: flex-start;
   gap: 15px;
 }
-.chatUserMessages{
+.chatUserMessages {
   display: flex;
   justify-content: flex-end;
   flex-flow: row-reverse;
@@ -78,42 +124,77 @@
   gap: 15px;
 }
 
-.chatInputContainer{
-    height: 100%;
-    padding: 5px 15px 15px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+.chatInputContainer {
+  height: 100%;
+  padding: 5px 15px 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
-.chatInput{
-border: 1px solid #37811f;
-border-radius: 15px;
-height: 70px;
-width: 100%;
-outline: none;
-vertical-align: top;
-resize: none;
-padding: 10px;
-font-family: poppins, sans-serif;
+.chatInput {
+  border: 1px solid #37811f;
+  border-radius: 15px;
+  height: 70px;
+  width: 100%;
+  outline: none;
+  vertical-align: top;
+  resize: none;
+  padding: 10px;
+  font-family: poppins, sans-serif;
 }
 
-#chatSendButton{
+#chatSendButton {
   padding: 5px 10px;
   height: fit-content;
   border-radius: 25px;
-  font-size: 14px; 
+  font-size: 14px;
 }
-.closeChatButton{
+.closeChatButton {
   width: 12px;
   height: 2px;
-  background-color: #FFF;
+  background-color: #fff;
 }
-.chatButton{
+.chatButton {
   background: none;
   border: none;
   height: 100%;
   cursor: pointer;
 }
 
+@media (max-width: 1000px) {
+  #chatBot {
+    border: 2px solid #37811f;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .chatBar {
+    justify-content: flex-start;
+
+  }
+}
+
+@media (max-width: 400px){
+  #chatBot{
+    width: 300px;
+  }
+  .chatMessages{
+    height: 300px;
+  }
+  .chatInputContainer{
+    padding: 0px 10px 10px 10px;
+  }
+  .chatMessagesBaloon{
+    font-size: 12px;
+  }
+  .chatInput{
+    height: 60px;
+    font-size: 12px;
+  }
+  #chatSendButton{
+    font-size: 12px;
+  }
+}
