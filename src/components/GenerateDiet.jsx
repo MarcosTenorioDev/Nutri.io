@@ -243,7 +243,7 @@ const GenerateDiet = () => {
               <h2 className='loadingTitle'>Olá, {person.name}!</h2>
               <p className='loadingDescription'>Aguarde um pouco, nossos robôs estão criando a melhor dieta sob medida exclusivamente para você!</p>
             </div>
-            <div className='loadingAnimationContainer'><div class="lds-dual-ring"></div></div>
+            <div className='loadingAnimationContainer'><div className="lds-dual-ring"></div></div>
             <div className='loadingFooter'>
               <p className='loadingDescription'>Esse processo dura menos de 3 minutos</p>
             </div>
