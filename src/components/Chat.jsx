@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../assets/css/Chat.css";
 import maximize from "../assets/images/maximize.svg";
 import ChatMessages from "../components/ChatMessages";
@@ -10,13 +10,15 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const body = document.body;
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
+  const messagesContainerRef = useRef(null);
 
   const sendAnswer = () => {
     setInputValue("");
     const newMessages = [...messages, { text: inputValue, role: "user" }];
     setMessages(newMessages);
     getChatMessage(newMessages);
+    scrollToBottom();
   };
 
   const getChatMessage = async (newMessages) => {
@@ -41,6 +43,19 @@ const Chat = () => {
     body.classList.remove('modalOpen');
     setModalOpen(false)
   };
+  const scrollToBottom = () => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scroll({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
     return (
       <>
       <div className="floatIcon pulse">
@@ -55,7 +70,7 @@ const Chat = () => {
             </button>
           </div>
           <div >
-            <div className="chatMessages">
+            <div className="chatMessages" ref={messagesContainerRef}>
               <ChatMessages
                 messageBaloon={
                   "Olá, sou o Nutri.Helper! a IA que vai tirar todas as suas dúvidas em relação a sua alimentação!"
