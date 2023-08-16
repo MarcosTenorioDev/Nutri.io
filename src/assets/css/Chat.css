@@ -46,14 +46,27 @@
   overflow: auto;
 }
 
-@keyframes pulse-animation {
-  0%,
-  60% {
-    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
-  }
-  100% {
-    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
-  }
+.loader {
+  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;  
+}
+.loader span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 20px;
+  animation: loader 0.8s infinite alternate;
+}
+.loader span:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+.loader span:nth-of-type(3) {
+  animation-delay: 1.2s;
 }
 
 .chatBar {
@@ -100,6 +113,17 @@
   font-family: poppins, sans-serif;
   font-size: 14px;
   width: 80%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.messagesBaloonTyping{
+  border: 1px solid #37811f;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 20px;
+  font-family: poppins, sans-serif;
+  font-size: 14px;
+  width: 30%;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -163,6 +187,26 @@
   height: 100%;
   cursor: pointer;
 }
+
+@keyframes loader {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  }
+  @keyframes pulse-animation {
+    0%,
+    60% {
+      box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+    }
+  }
 
 @media (max-width: 1000px) {
   #chatBot {

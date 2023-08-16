@@ -12,6 +12,7 @@ const Chat = () => {
   const body = document.body;
   const [modalOpen, setModalOpen] = useState(false);
   const messagesContainerRef = useRef(null);
+  const [typing, setTyping] = useState(false);
 
   const sendAnswer = () => {
     setInputValue("");
@@ -19,29 +20,32 @@ const Chat = () => {
     setMessages(newMessages);
     getChatMessage(newMessages);
     scrollToBottom();
+    setTyping(true);
   };
 
   const getChatMessage = async (newMessages) => {
+    console.log(newMessages);
     const chatResponse = await ChatBot(inputValue);
     const newResponse = [
       ...newMessages,
       { text: chatResponse, role: "system" },
     ];
     setMessages(newResponse);
+    setTyping(false);
   };
 
   const openChat = () => {
     setIsOpen(true);
-    if(window.screen.width < 1000){
-    window.scrollTo(0, 0);
-    body.classList.add('modalOpen');
-    setModalOpen(true)
+    if (window.screen.width < 1000) {
+      window.scrollTo(0, 0);
+      body.classList.add("modalOpen");
+      setModalOpen(true);
     }
   };
   const closeChat = () => {
     setIsOpen(false);
-    body.classList.remove('modalOpen');
-    setModalOpen(false)
+    body.classList.remove("modalOpen");
+    setModalOpen(false);
   };
   const scrollToBottom = () => {
     if (messagesContainerRef.current) {
@@ -56,20 +60,23 @@ const Chat = () => {
     scrollToBottom();
   }, [messages]);
 
-    return (
-      <>
+  return (
+    <>
       <div className="floatIcon pulse">
         <img src={logoFloatBtn} className="floatIconImg" onClick={openChat} />
       </div>
 
-      <div id="modalChat" className={modalOpen ? "modalChatOpen" : "modalClose"}>
+      <div
+        id="modalChat"
+        className={modalOpen ? "modalChatOpen" : "modalClose"}
+      >
         <div id="chatBot" className={isOpen ? "chatOpen" : "chatClose"}>
           <div className="chatBar">
             <button onClick={closeChat} className="chatButton">
               <div className="closeChatButton"></div>
             </button>
           </div>
-          <div >
+          <div>
             <div className="chatMessages" ref={messagesContainerRef}>
               <ChatMessages
                 messageBaloon={
@@ -85,7 +92,26 @@ const Chat = () => {
                   role={message.role}
                 />
               ))}
+
+              {typing ? (
+                <>
+                  <ChatMessages
+                    typing = {true}
+                    messageBaloon={
+                      <div class="loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    }
+                    role="system"
+                  />
+                </>
+              ) : (
+                <></>
+              )}
             </div>
+
             <div className="chatInputContainer">
               <textarea
                 type="text"
@@ -112,8 +138,8 @@ const Chat = () => {
           </div>
         </div>
       </div>
-      </>
-    );
+    </>
+  );
 };
 
 export default Chat;
